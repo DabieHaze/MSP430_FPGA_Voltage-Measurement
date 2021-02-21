@@ -1,13 +1,13 @@
-# MSP430_FPGA_Voltage-Measurement
+# FPGA_Signal-Measurement
 
 Hardware：
-MSP430; FPGA
+FPGA
 
 Software:
-IAR for MSP430; Quartus II
+Quartus II
 
 Language:
-C, VHDL
+VHDL
 
 Function 1: Sinmoid signals measurement: Vpp from 20 to 50mV, frequency from 10Hz to 1KHz, relative error ≤ 10%
 
