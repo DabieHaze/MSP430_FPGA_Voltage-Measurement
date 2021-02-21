@@ -1,0 +1,532 @@
+Analysis & Synthesis report for competition
+Fri May 04 14:24:16 2018
+Quartus II Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |competition|uart:inst|uart_r:uart_receive|state
+  9. State Machine - |competition|uart:inst|uart_t:uart_transfer|state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: uart:inst|gen_div:uart_baud
+ 16. Parameter Settings for User Entity Instance: uart:inst|gen_div:seg_clk
+ 17. Parameter Settings for User Entity Instance: uart:inst|uart_t:uart_transfer
+ 18. Parameter Settings for User Entity Instance: uart:inst|uart_r:uart_receive
+ 19. Port Connectivity Checks: "uart:inst|narr_sig:narr_rev_ready"
+ 20. Port Connectivity Checks: "uart:inst|uart_t:uart_transfer"
+ 21. Port Connectivity Checks: "uart:inst|gen_div:seg_clk"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri May 04 14:24:16 2018          ;
+; Quartus II Version                 ; 11.0 Build 208 07/03/2011 SP 1 SJ Full Version ;
+; Revision Name                      ; competition                                    ;
+; Top-level Entity Name              ; competition                                    ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 181                                            ;
+;     Total combinational functions  ; 144                                            ;
+;     Dedicated logic registers      ; 95                                             ;
+; Total registers                    ; 95                                             ;
+; Total pins                         ; 14                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE10E22C8       ;                    ;
+; Top-level entity name                                                      ; competition        ; competition        ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                             ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path             ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------+
+; uart.vhd                         ; yes             ; User VHDL File                     ; D:/MrPikachu/Competition/uart.vhd        ;
+; SEG_SEL.vhd                      ; yes             ; User VHDL File                     ; D:/MrPikachu/Competition/SEG_SEL.vhd     ;
+; SEG_DISPLAY.vhd                  ; yes             ; User VHDL File                     ; D:/MrPikachu/Competition/SEG_DISPLAY.vhd ;
+; HANDLE.vhd                       ; yes             ; User VHDL File                     ; D:/MrPikachu/Competition/HANDLE.vhd      ;
+; competition.bdf                  ; yes             ; User Block Diagram/Schematic File  ; D:/MrPikachu/Competition/competition.bdf ;
+; gen_div.vhd                      ; yes             ; Auto-Found VHDL File               ; D:/MrPikachu/Competition/gen_div.vhd     ;
+; uart_t.vhd                       ; yes             ; Auto-Found VHDL File               ; D:/MrPikachu/Competition/uart_t.vhd      ;
+; uart_r.vhd                       ; yes             ; Auto-Found VHDL File               ; D:/MrPikachu/Competition/uart_r.vhd      ;
+; narr_sig.vhd                     ; yes             ; Auto-Found VHDL File               ; D:/MrPikachu/Competition/narr_sig.vhd    ;
++----------------------------------+-----------------+------------------------------------+------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 181           ;
+;                                             ;               ;
+; Total combinational functions               ; 144           ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 60            ;
+;     -- 3 input functions                    ; 44            ;
+;     -- <=2 input functions                  ; 40            ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 125           ;
+;     -- arithmetic mode                      ; 19            ;
+;                                             ;               ;
+; Total registers                             ; 95            ;
+;     -- Dedicated logic registers            ; 95            ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 14            ;
+; Maximum fan-out node                        ; clk_50M~input ;
+; Maximum fan-out                             ; 65            ;
+; Total fan-out                               ; 719           ;
+; Average fan-out                             ; 2.69          ;
++---------------------------------------------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; |competition                ; 144 (0)           ; 95 (0)       ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |competition                               ;              ;
+;    |HANDLE:inst3|           ; 9 (9)             ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |competition|HANDLE:inst3                  ;              ;
+;    |SEG_DISPLAY:inst2|      ; 38 (38)           ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |competition|SEG_DISPLAY:inst2             ;              ;
+;    |SEG_SEL:inst4|          ; 36 (36)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |competition|SEG_SEL:inst4                 ;              ;
+;    |uart:inst|              ; 61 (3)            ; 49 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |competition|uart:inst                     ;              ;
+;       |gen_div:uart_baud|   ; 15 (15)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |competition|uart:inst|gen_div:uart_baud   ;              ;
+;       |uart_r:uart_receive| ; 43 (43)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |competition|uart:inst|uart_r:uart_receive ;              ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |competition|uart:inst|uart_r:uart_receive|state                                                             ;
++--------------------------+--------------+----------------+-------------------------+--------------------------+--------------+
+; Name                     ; state.r_stop ; state.r_sample ; state.r_sample_data_bit ; state.r_sample_start_bit ; state.r_idle ;
++--------------------------+--------------+----------------+-------------------------+--------------------------+--------------+
+; state.r_idle             ; 0            ; 0              ; 0                       ; 0                        ; 0            ;
+; state.r_sample_start_bit ; 0            ; 0              ; 0                       ; 1                        ; 1            ;
+; state.r_sample_data_bit  ; 0            ; 0              ; 1                       ; 0                        ; 1            ;
+; state.r_sample           ; 0            ; 1              ; 0                       ; 0                        ; 1            ;
+; state.r_stop             ; 1            ; 0              ; 0                       ; 0                        ; 1            ;
++--------------------------+--------------+----------------+-------------------------+--------------------------+--------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------+
+; State Machine - |competition|uart:inst|uart_t:uart_transfer|state                          ;
++-------------------+------------------+------------------+-------------------+--------------+
+; Name              ; state.x_stop_bit ; state.x_data_bit ; state.x_start_bit ; state.x_idle ;
++-------------------+------------------+------------------+-------------------+--------------+
+; state.x_idle      ; 0                ; 0                ; 0                 ; 0            ;
+; state.x_start_bit ; 0                ; 0                ; 1                 ; 1            ;
+; state.x_data_bit  ; 0                ; 1                ; 0                 ; 1            ;
+; state.x_stop_bit  ; 1                ; 0                ; 0                 ; 1            ;
++-------------------+------------------+------------------+-------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                    ;
++----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal      ; Free of Timing Hazards ;
++----------------------------------------------------+--------------------------+------------------------+
+; SEG_DISPLAY:inst2|DATA_OUT[7]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; SEG_DISPLAY:inst2|DATA_OUT[6]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; SEG_DISPLAY:inst2|DATA_OUT[5]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; SEG_DISPLAY:inst2|DATA_OUT[4]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; SEG_DISPLAY:inst2|DATA_OUT[3]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; SEG_DISPLAY:inst2|DATA_OUT[2]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; SEG_DISPLAY:inst2|DATA_OUT[1]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; SEG_DISPLAY:inst2|DATA_OUT[0]                      ; SEG_DISPLAY:inst2|CNT[0] ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                          ;                        ;
++----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                            ;
++------------------------------------------------------+----------------------------------------+
+; Register name                                        ; Reason for Removal                     ;
++------------------------------------------------------+----------------------------------------+
+; SEG_SEL:inst4|C[2,3]                                 ; Stuck at GND due to stuck port data_in ;
+; HANDLE:inst3|SIGN2[1]                                ; Merged with HANDLE:inst3|SIGN2[0]      ;
+; HANDLE:inst3|SIGN2[3]                                ; Merged with HANDLE:inst3|SIGN2[2]      ;
+; SEG_SEL:inst4|B[1]                                   ; Merged with SEG_SEL:inst4|B[0]         ;
+; SEG_SEL:inst4|B[3]                                   ; Merged with SEG_SEL:inst4|B[2]         ;
+; uart:inst|uart_r:uart_receive|state.r_sample         ; Lost fanout                            ;
+; uart:inst|uart_t:uart_transfer|xcnt16[0..4]          ; Lost fanout                            ;
+; uart:inst|narr_sig:narr_rev_ready|narr_sig_out       ; Lost fanout                            ;
+; uart:inst|uart_t:uart_transfer|xbitcnt[0..2]         ; Lost fanout                            ;
+; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[0..7] ; Lost fanout                            ;
+; uart:inst|narr_sig:narr_rev_ready|stop_narr_flag     ; Lost fanout                            ;
+; uart:inst|uart_t:uart_transfer|state.x_idle          ; Lost fanout                            ;
+; uart:inst|uart_t:uart_transfer|state.x_start_bit     ; Lost fanout                            ;
+; uart:inst|uart_t:uart_transfer|state.x_data_bit      ; Lost fanout                            ;
+; uart:inst|uart_t:uart_transfer|state.x_stop_bit      ; Lost fanout                            ;
+; Total Number of Removed Registers = 29               ;                                        ;
++------------------------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                              ;
++------------------------------------------------+--------------------+----------------------------------------------------+
+; Register name                                  ; Reason for Removal ; Registers Removed due to This Register             ;
++------------------------------------------------+--------------------+----------------------------------------------------+
+; uart:inst|narr_sig:narr_rev_ready|narr_sig_out ; Lost Fanouts       ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[7], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[6], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[5], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[4], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[3], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[2], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[1], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[0], ;
+;                                                ;                    ; uart:inst|narr_sig:narr_rev_ready|stop_narr_flag   ;
+; uart:inst|uart_t:uart_transfer|xbitcnt[2]      ; Lost Fanouts       ; uart:inst|uart_t:uart_transfer|xbitcnt[1]          ;
++------------------------------------------------+--------------------+----------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 95    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 22    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 35    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                                ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------------+----------------------------+
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; |competition|SEG_SEL:inst4|TMP[1]                         ;                            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; |competition|HANDLE:inst3|DATA_OUT[8]                     ;                            ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 0 LEs                ; 12 LEs                 ; |competition|HANDLE:inst3|DATA_OUT[0]                     ;                            ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; |competition|uart:inst|uart_t:uart_transfer|xcnt16[2]     ;                            ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; |competition|uart:inst|uart_t:uart_transfer|xbitcnt[0]    ;                            ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; |competition|uart:inst|uart_r:uart_receive|\pro2:count[0] ;                            ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; |competition|uart:inst|uart_r:uart_receive|\pro2:rcnt[1]  ;                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |competition|SEG_SEL:inst4|Mux1                           ;                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |competition|SEG_SEL:inst4|Mux3                           ;                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; |competition|SEG_DISPLAY:inst2|Mux0                       ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+-----------------------------------------------------------+----------------------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:inst|gen_div:uart_baud ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; div_param      ; 163   ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:inst|gen_div:seg_clk ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; div_param      ; 10    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:inst|uart_t:uart_transfer ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; framlen        ; 7     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart:inst|uart_r:uart_receive ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; framlen        ; 8     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "uart:inst|narr_sig:narr_rev_ready" ;
++----------------+-------+----------+---------------------------+
+; Port           ; Type  ; Severity ; Details                   ;
++----------------+-------+----------+---------------------------+
+; narr_prd[1..0] ; Input ; Info     ; Stuck at VCC              ;
+; narr_prd[7..2] ; Input ; Info     ; Stuck at GND              ;
++----------------+-------+----------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "uart:inst|uart_t:uart_transfer"                                                         ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; txd_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "uart:inst|gen_div:seg_clk"                                                          ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; bclk ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Full Version
+    Info: Processing started: Fri May 04 14:24:13 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off competition -c competition
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Found 2 design units, including 1 entities, in source file uart.vhd
+    Info: Found design unit 1: uart-behave
+    Info: Found entity 1: uart
+Info: Found 2 design units, including 1 entities, in source file seg_sel.vhd
+    Info: Found design unit 1: SEG_SEL-behave
+    Info: Found entity 1: SEG_SEL
+Info: Found 2 design units, including 1 entities, in source file seg_display.vhd
+    Info: Found design unit 1: SEG_DISPLAY-behave
+    Info: Found entity 1: SEG_DISPLAY
+Info: Found 2 design units, including 1 entities, in source file handle.vhd
+    Info: Found design unit 1: HANDLE-behave
+    Info: Found entity 1: HANDLE
+Info: Found 1 design units, including 1 entities, in source file competition.bdf
+    Info: Found entity 1: competition
+Info: Elaborating entity "competition" for the top level hierarchy
+Info: Elaborating entity "SEG_DISPLAY" for hierarchy "SEG_DISPLAY:inst2"
+Warning (10492): VHDL Process Statement warning at SEG_DISPLAY.vhd(47): signal "SEG" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at SEG_DISPLAY.vhd(37): inferring latch(es) for signal or variable "DATA_OUT", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "DATA_OUT[0]" at SEG_DISPLAY.vhd(37)
+Info (10041): Inferred latch for "DATA_OUT[1]" at SEG_DISPLAY.vhd(37)
+Info (10041): Inferred latch for "DATA_OUT[2]" at SEG_DISPLAY.vhd(37)
+Info (10041): Inferred latch for "DATA_OUT[3]" at SEG_DISPLAY.vhd(37)
+Info (10041): Inferred latch for "DATA_OUT[4]" at SEG_DISPLAY.vhd(37)
+Info (10041): Inferred latch for "DATA_OUT[5]" at SEG_DISPLAY.vhd(37)
+Info (10041): Inferred latch for "DATA_OUT[6]" at SEG_DISPLAY.vhd(37)
+Info (10041): Inferred latch for "DATA_OUT[7]" at SEG_DISPLAY.vhd(37)
+Info: Elaborating entity "SEG_SEL" for hierarchy "SEG_SEL:inst4"
+Warning (10492): VHDL Process Statement warning at SEG_SEL.vhd(60): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SEG_SEL.vhd(61): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SEG_SEL.vhd(62): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SEG_SEL.vhd(63): signal "D" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Elaborating entity "HANDLE" for hierarchy "HANDLE:inst3"
+Info: Elaborating entity "uart" for hierarchy "uart:inst"
+Warning (10036): Verilog HDL or VHDL warning at uart.vhd(63): object "clk1" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at uart.vhd(67): object "txd_done_iner" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at uart.vhd(72): used implicit default value for signal "led_tmp" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning: Using design file gen_div.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: gen_div-behave
+    Info: Found entity 1: gen_div
+Info: Elaborating entity "gen_div" for hierarchy "uart:inst|gen_div:uart_baud"
+Info: Elaborating entity "gen_div" for hierarchy "uart:inst|gen_div:seg_clk"
+Warning: Using design file uart_t.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: uart_t-behave
+    Info: Found entity 1: uart_t
+Info: Elaborating entity "uart_t" for hierarchy "uart:inst|uart_t:uart_transfer"
+Warning: Using design file uart_r.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: uart_r-behave
+    Info: Found entity 1: uart_r
+Info: Elaborating entity "uart_r" for hierarchy "uart:inst|uart_r:uart_receive"
+Warning: Using design file narr_sig.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: narr_sig-behave
+    Info: Found entity 1: narr_sig
+Info: Elaborating entity "narr_sig" for hierarchy "uart:inst|narr_sig:narr_rev_ready"
+Info: Timing-Driven Synthesis is running
+Info: 23 registers lost all their fanouts during netlist optimizations. The first 23 are displayed below.
+    Info: Register "uart:inst|uart_r:uart_receive|state.r_sample" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xcnt16[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xcnt16[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xcnt16[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xcnt16[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xcnt16[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_sig_out" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xbitcnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xbitcnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|xbitcnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|narr_prd_cnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|narr_sig:narr_rev_ready|stop_narr_flag" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|state.x_idle" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|state.x_start_bit" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|state.x_data_bit" lost all its fanouts during netlist optimizations.
+    Info: Register "uart:inst|uart_t:uart_transfer|state.x_stop_bit" lost all its fanouts during netlist optimizations.
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Info: Implemented 203 device resources after synthesis - the final resource count might be different
+    Info: Implemented 3 input pins
+    Info: Implemented 11 output pins
+    Info: Implemented 189 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 288 megabytes
+    Info: Processing ended: Fri May 04 14:24:16 2018
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:01
+
+
